@@ -1,0 +1,75 @@
+<div class="yo">
+  <div class="container" [ngClass]="{ 'active': isLoginFormActive }">
+    <div class="form-container sign-up" *ngIf="!isLoginFormActive">
+      <form [formGroup]="signupForm" (ngSubmit)="signupSubmit()">
+        <h1>Créer un compte</h1>
+        <input required formControlName="nom" type="text" placeholder="Nom">
+        <div *ngIf="signupForm.get('nom')!.invalid && signupForm.get('nom')!.touched" class="error-msg">
+          Nom is required.
+        </div>
+
+        <input required formControlName="prenom" type="text" placeholder="Prenom">
+        <div *ngIf="signupForm.get('prenom')!.invalid && signupForm.get('prenom')!.touched" class="error-msg">
+          Prenom is required.
+        </div>
+
+        <input required formControlName="numCin" type="text" placeholder="num CIN">
+        <div *ngIf="signupForm.get('numCin')!.invalid && signupForm.get('numCin')!.touched" class="error-msg">
+          CIN must be exactly 8 digits.
+        </div>
+
+        <input required formControlName="dateNaiss" type="date" placeholder="Date de Naissance">
+        <div *ngIf="signupForm.get('dateNaiss')!.invalid && signupForm.get('dateNaiss')!.touched" class="error-msg">
+          Must be at least 18 years old.
+        </div>
+
+        <input required formControlName="email" type="email" placeholder="Email">
+        <div *ngIf="signupForm.get('email')!.invalid && signupForm.get('email')!.touched" class="error-msg">
+          Invalid email format.
+        </div>
+
+        <input required formControlName="motDePasse" type="password" placeholder="motDePasse">
+        <div *ngIf="signupForm.get('motDePasse')!.invalid && signupForm.get('motDePasse')!.touched" class="error-msg">
+          Password is required.
+        </div>
+
+        <div *ngIf="signupError" class="error-msg">{{ signupError }}</div>
+        <button type="submit">Créer un CompteBancaire</button>
+      </form>
+    </div>
+
+    <div class="form-container sign-in" *ngIf="isLoginFormActive">
+      <form [formGroup]="loginForm" (ngSubmit)="loginSubmit()">
+        <h1>Se Connecter</h1>
+        <input required formControlName="email" type="email" placeholder="email">
+        <div *ngIf="loginForm.get('email')!.invalid && loginForm.get('email')!.touched" class="error-msg">
+          Invalid email format.
+        </div>
+
+        <input required formControlName="motDePasse" type="password" placeholder="motDePasse">
+        <div *ngIf="loginForm.get('motDePasse')!.invalid && loginForm.get('motDePasse')!.touched" class="error-msg">
+          Password is required.
+        </div>
+
+        <div *ngIf="loginError" class="error-msg">{{ loginError }}</div>
+        <a routerLink="/ForgetPass">Mot de Passe Oublié?</a>
+        <button type="submit">Se Connecter</button>
+      </form>
+    </div>
+
+    <div class="toggle-container">
+      <div class="toggle">
+        <div class="toggle-panel toggle-left">
+          <h1>Bienvenue!</h1>
+          <p>Want to join us!</p>
+          <button class="hidden" (click)="toggleForm()">Créer un compte</button>
+        </div>
+        <div class="toggle-panel toggle-right">
+          <h1>Welcome!</h1>
+          <p>Already have an account!</p>
+          <button class="hidden" (click)="toggleForm()">Se Connecter</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

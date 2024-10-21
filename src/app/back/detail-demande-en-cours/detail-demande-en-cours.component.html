@@ -1,0 +1,80 @@
+<!-- Dialog and Backdrop -->
+<div *ngIf="isDialogOpen" class="dialog-backdrop" (click)="closeDialog()"></div>
+<div *ngIf="isDialogOpen" class="dialog-content">
+  <div class="demande-info">
+    <h2>Détails de la Demande de Crédit</h2>
+    <p><strong>Numéro Demande:</strong> {{ data.numD }}</p>
+    <p><strong>Type Demande:</strong> {{ data.typeCredit }}</p>
+    <p><strong>Montant:</strong> {{ data.montant }} DT</p>
+    <p><strong>Date:</strong> {{ data.dateDemande | date }}</p>
+    <p><strong>Duree:</strong> {{ data.dureeCredit }}</p>
+    <p><strong>Type Unite:</strong> {{ data.typeUnite }}</p>
+
+    <div *ngIf="data.garanties && data.garanties.length > 0">
+      <h3>Garanties</h3>
+      <ul>
+        <li *ngFor="let garantie of data.garanties">
+          <p><strong>Nature:</strong> {{ garantie.nature }}</p>
+          <p><strong>Type:</strong> {{ garantie.typeGarantie }}</p>
+          <p><strong>Valeur:</strong> {{ garantie.valeur }} {{ garantie.devise }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="client-info" *ngIf="client">
+    <h2>Détails du Client</h2>
+    <p><strong>Nom:</strong> {{ client.name }} {{ client.prenom }}</p>
+    <p><strong>CIN:</strong> {{ client.numCin }}</p>
+    <p><strong>Email:</strong> {{ client.email }}</p>
+    <p><strong>Sexe:</strong> {{ client.sexe }}</p>
+    <p><strong>Situation Familiale:</strong> {{ client.situationFamiliale }}</p>
+    <p><strong>Revenu Mensuel:</strong> {{ client.revenuMensuel }} DT</p>
+    <p><strong>Salaire:</strong> {{ client.salaire }} DT</p>
+    <p><strong>Charges Mensuelles:</strong> {{ client.chargesMensuelles }} DT</p>
+    <p><strong>Type d'employement:</strong> {{ client.employmentType }}</p>
+
+    <p><strong>Age:</strong> {{ client.age }}</p>
+  </div>
+  <div class="account-info">
+    <h2>Comptes</h2>
+    <ul>
+      <li *ngFor="let compte of compteBancaires">
+        <p><strong>Numéro de Compte:</strong> {{ compte.numeroCompte }}</p>
+        <p><strong>Date d'Ouverture:</strong> {{ compte.dateOvertureCompte | date }}</p>
+        <p><strong>Devise:</strong> {{ compte.deviceC }}</p>
+        <p><strong>Solde:</strong> {{ compte.solde }} {{ compte.deviceC }}</p>
+        <p><strong>Type de Compte:</strong> {{ compte.typeCompte }}</p>
+        <p><strong>Montant Rouge:</strong> {{ compte.montantRouge }} {{ compte.deviceC }}</p>
+        <p><strong>Nombre de Retard de Paiement:</strong> {{ compte.nombreDeRetardDePaiement }}</p>
+        <p><strong>Etat du Compte:</strong> {{ compte.etatDeCompte }}</p>
+      </li>
+    </ul>
+  </div>
+  <div class="deux">
+    <button class="done score-btn" (click)="calculateScore()">
+      <i class="fas fa-calculator"></i> Calculer le score
+    </button>
+    <button class="done risk-btn" (click)="evaluateRisk()">
+      <i class="fas fa-shield-alt"></i> Evaluer le risque
+    </button>
+  </div>
+  <div *ngIf="riskScore !== null" class="result score">
+    <i class="fas fa-star"></i>
+    <p><strong>Score de Client:</strong> {{ riskScore }}</p>
+  </div>
+  <div *ngIf="riskLevel !== null" class="result {{ riskLevel }}">
+    <p><strong>Niveau de Risque:</strong> {{ riskLevel }}</p>
+  </div>
+
+  <div *ngIf="statusMessage" class="status-message">
+    <i class="fa-solid fa-circle-info"></i>
+    <p>{{ statusMessage }}</p>
+  </div>
+
+
+
+  <button class="close-button" (click)="closeDialog()">
+    <i class="fas fa-times"></i>
+  </button>
+</div>

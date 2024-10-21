@@ -1,0 +1,118 @@
+.dialog-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
+  .dialog-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  .dialog-content h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.dialog-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 10px 0;
+    padding: 8px 0;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.dialog-content p strong {
+    font-weight: 600;
+    color: #555;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #dc3545;
+  }
+
+  .close-button:hover {
+    color: #c82333;
+  }
+
+@media (max-width: 600px) {
+    .dialog-content {
+        padding: 15px;
+    }
+
+    .dialog-content h2 {
+        font-size: 20px;
+    }
+
+    .dialog-content p {
+        font-size: 14px;
+    }
+
+    .dialog-content .close-button {
+        width: 100%;
+    }
+}
+.action-buttons {
+    margin-top: 20px;
+  }
+
+  .action-btn {
+    background-color: #AB873E;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .action-btn i {
+    margin-right: 5px;
+  }
+
+  .action-btn:hover {
+    background-color: #000000;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f4f4f4;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }

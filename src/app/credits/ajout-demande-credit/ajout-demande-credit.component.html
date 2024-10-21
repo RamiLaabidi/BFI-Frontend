@@ -1,0 +1,58 @@
+<div class="form-container">
+  <h1>Demander un crédit</h1><br>
+
+  <form [formGroup]="creditForm" (ngSubmit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="typeCredit">Type of Credit:</label>
+                <select id="typeCredit" formControlName="typeCredit" required>
+                    <option *ngFor="let type of typeCredits" [value]="type">{{ type }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="montant">Amount:</label>
+                <input type="number" id="montant" formControlName="montant" placeholder="Enter amount" required>
+            </div>
+            <div class="form-group">
+                <label for="dureeCredit">Duration (months):</label>
+                <input type="number" id="dureeCredit" formControlName="dureeCredit" placeholder="Enter duration" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="interet">Interest Rate:</label>
+                <input type="number" id="interet" formControlName="interet" placeholder="Interest rate" [disabled]="true" required>
+            </div>
+        </div>
+        <div class="form-buttons">
+            <button type="submit" [disabled]="!creditForm.valid">Submit</button>
+            <button type="button" (click)="generateEcheances()">Echeancier</button>
+        </div>
+    </form>
+
+    <!-- Table to display Echeances -->
+    <div class="table-responsive" *ngIf="echeances.length > 0">
+        <table>
+            <thead>
+            <tr>
+                <th>Date Paiement</th>
+                <th>Capital Remboursé</th>
+                <th>Capital Restant Dû</th>
+                <th>Intérêts Payés</th>
+                <th>Mensualité</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let echeance of echeances">
+                <td>{{ echeance.datePaiement | date }}</td>
+                <td>{{ echeance.capitalRembourse }}</td>
+                <td>{{ echeance.capitalRestantDu }}</td>
+                <td>{{ echeance.interetsPayes }}</td>
+                <td>{{ echeance.mensualite }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

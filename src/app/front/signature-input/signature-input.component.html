@@ -1,0 +1,11 @@
+<canvas #canvasEl width="400" height="200" style="border: 1px solid #000;" 
+        (mousedown)="onMouseDown($event)" 
+        (mousemove)="onMouseMove($event)"></canvas>
+<br>
+<button class="btn btn-outline-primary futuristic-btn" (click)="clearCanvas()">
+  <i class="fas fa-trash-alt"></i> <!-- Use trash icon for clear button -->
+</button>
+<span style="margin-right: 10px;"></span> <!-- Add spacing between buttons -->
+<button class="btn btn-outline-primary futuristic-btn" (click)="saveSignature()">
+  <i class="fas fa-save"></i> <!-- Use save icon for save button -->
+</button>

@@ -1,0 +1,39 @@
+<app-admin-sidebar></app-admin-sidebar>
+<app-admin-navbar></app-admin-navbar>
+<div class="table-container">
+  <table class="authors-table">
+    <thead>
+      <tr>
+        <th>Client</th>
+        <th>Sexe</th>
+        <th>Age</th>
+        <th>Salaire</th>
+        <th>Num Cin</th>
+        <th>Employment Type</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of authors">
+        <td>
+          <div class="author-info">
+            <img [src]="author.profilePicture ? 'http://localhost:8077/user/profile-picture/' + author.profilePicture : '../../assets/images/fcbk.png'" alt="Profile Picture" class="author-img">
+            <div class="author-details">
+              <div class="author-name">{{ author.nom }} {{ author.prenom }}</div>
+              <div class="author-email">{{ author.email }}</div>
+            </div>
+          </div>
+        </td>
+        <td>{{ author.sexe }}</td>
+        <td>{{ author.age }}</td>
+        <td>{{ author.salaire }}</td>
+        <td>{{ author.numCin }}</td>
+        <td>{{ author.employmentType }}</td>
+
+
+
+        <td><button class="edit-button" (click)="deleteUser(author.idU)"><i class="fa-solid fa-trash"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

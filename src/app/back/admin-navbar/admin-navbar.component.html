@@ -1,0 +1,32 @@
+
+<div class="navbar">
+    <div class="search-container">
+
+            <div class="search-wrapper">
+              <a><i class="fa-solid fa-magnifying-glass"></i></a>
+              <input type="text" placeholder="Search" class="search-input">
+              <a><i class="fa-regular fa-bell bell-icon"></i></a>
+            </div>
+
+    </div>
+
+        <div class="dropdown">
+            <button class="dropbtn">
+                <img [src]="currentUser?.profilePicture ? 'http://localhost:8222/user/profile-picture/' + currentUser.profilePicture : '../../assets/images/fcbk.png'" alt="Profile Picture" class="profile-thumb">
+                <span class="status-indicator"></span>
+            </button>
+            <div class="dropdown-content">
+                <div class="dropdown-header">
+                    <img [src]="currentUser?.profilePicture ? 'http://localhost:8222/user/profile-picture/' + currentUser.profilePicture : '../../assets/images/fcbk.png'" alt="Profile Picture" class="profile-thumb">
+                    <div>
+                        <p>{{ currentUser?.nom}} {{ currentUser?.prenom }}</p>
+                        <p class="role">ADMIN</p>
+                    </div>
+                </div>
+                <a routerLink="/profilAdmin"><i class="fa-solid fa-user"></i>Profile</a>
+                <a href="#"><i class="fa fa-cogs"></i>Settings</a>
+                <a (click)="logout()"><i class="fa fa-sign-out-alt"></i>Logout</a>
+            </div>
+        </div>
+
+</div>

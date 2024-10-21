@@ -1,0 +1,60 @@
+<div class="all">
+<app-admin-sidebar></app-admin-sidebar>
+<app-admin-navbar></app-admin-navbar>
+<nav class="sub-navbar">
+    <a routerLink="/profilAdmin" class="sub-nav-link active"><i class="fa-regular fa-user"></i>PROFIL</a>
+    <a href="/securityAdmin" class="sub-nav-link"><i class="fa-solid fa-lock-open"></i>SECURITE</a>
+    <a href="#" class="sub-nav-link"><i class="fa-regular fa-bell"></i>NOTIFICATIONS</a>
+</nav>
+
+<div class="account-details">
+    <div class="profile-picture">
+        <img [src]="currentUser?.profilePicture ? 'http://localhost:8222/user/profile-picture/' + currentUser.profilePicture : '../../assets/images/fcbk.png'"alt="Profile Picture" class="profile-pic">
+    <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden>
+    <button class="upload-button" (click)="triggerFileInputClick()">UPLOAD NEW PHOTO</button>
+    <button class="reset-button" (click)="resetForm()">RESET</button>
+    <p>Allowed JPG, GIF or PNG. Max size of 800K</p>
+
+    </div>
+    <form class="details-form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <div class="input-group">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom"  formControlName="nom" >
+            </div>
+            <div class="input-group">
+                <label for="last-name">Prenom</label>
+                <input type="text" id="prenom"  formControlName="prenom">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email"  formControlName="email">
+            </div>
+            <div class="input-group">
+                <label for="formattedDateNaiss">Date de Naissance</label>
+                <input type="date" id="formattedDateNaiss" formControlName="formattedDateNaiss">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <label for="phone">Lieu de Naissance</label>
+                <select id="lieuNaissance"  name="lieuNaiss" formControlName="lieuNaiss">
+                    <option *ngFor="let lieu of lieuNaissanceOptions" [value]="lieu">{{ lieu }}</option>
+                  </select>
+            </div>
+            <div class="input-group">
+                <label for="address">Sexe</label>
+                <select id="sexe"  name="sexe" formControlName="sexe">
+                    <option *ngFor="let sexe of sexeOptions" [value]="sexe">{{ sexe }}</option>
+                  </select>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="save-button">SAVE CHANGES</button>
+            <button type="reset" class="reset-button" (click)="resetForm()">RESET</button>
+        </div>
+    </form>
+</div>
+</div>

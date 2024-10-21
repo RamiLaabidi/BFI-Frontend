@@ -1,0 +1,49 @@
+<app-admin-sidebar></app-admin-sidebar>
+<app-admin-navbar></app-admin-navbar>
+<nav class="sub-navbar">
+    <a routerLink="/profilAdmin" class="sub-nav-link"><i class="fa-regular fa-user"></i>PROFIL</a>
+    <a href="/securityAdmin" class="sub-nav-link active"><i class="fa-solid fa-lock-open"></i>SECURITE</a>
+    <a href="#" class="sub-nav-link"><i class="fa-regular fa-bell"></i>NOTIFICATIONS</a>
+</nav>
+<div class="change-password-container">
+    <h2>Change Password</h2>
+    <form (ngSubmit)="onSubmit()" #changePasswordForm="ngForm">
+        <div class="form-group">
+            <div class="input-group">
+                <label for="currentPassword">Current Password</label>
+                <input [type]="passwordFieldType" id="currentPassword" name="currentPassword" [(ngModel)]="changePasswordRequest.currentPassword" required>
+                <button class="toggle-password" type="button" (click)="togglePasswordVisibility()">
+                    <i [ngClass]="passwordFieldType === 'password' ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash'"></i>
+                  </button> 
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <label for="newPassword">New Password</label>
+                <input [type]="passwordFieldType" id="newPassword" name="newPassword" [(ngModel)]="changePasswordRequest.newPassword" required>
+                <button class="toggle-password" type="button" (click)="togglePasswordVisibility()">
+                    <i [ngClass]="passwordFieldType === 'password' ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash'"></i>
+                  </button>           
+             </div>
+            <div class="input-group">
+                <label for="confirmPassword">Confirm New Password</label>
+                <input [type]="passwordFieldType" id="confirmationPassword" name="confirmationPassword" [(ngModel)]="changePasswordRequest.confirmationPassword" required>
+                <button class="toggle-password" type="button" (click)="togglePasswordVisibility()">
+                    <i [ngClass]="passwordFieldType === 'password' ? 'fa-regular fa-eye' : 'fa-regular fa-eye-slash'"></i>
+                  </button> 
+            </div>
+        </div>
+        <div class="password-requirements">
+            <h4>Password Requirements:</h4>
+            <ul>
+                <li>Minimum 8 characters long - the more, the better</li>
+                <li>At least one lowercase character</li>
+                <li>At least one number, symbol, or whitespace character</li>
+            </ul>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn-save" >Save Changes</button>
+            <button type="reset" class="btn-reset" (click)="onReset(changePasswordForm)" >Reset</button>
+        </div>
+    </form>
+</div>

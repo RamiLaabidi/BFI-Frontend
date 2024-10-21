@@ -1,0 +1,199 @@
+<!-- Head Section -->
+<head>
+    <!-- Favicon -->
+    <link href="/assets/front/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/assets/front/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/assets/front/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/assets/front/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/assets/front/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/assets/front/css/style.css" rel="stylesheet">
+</head>
+
+<!-- Body Section -->
+
+
+<!-- Footer Section -->
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/front/lib/wow/wow.min.js"></script>
+<script src="/assets/front/lib/easing/easing.min.js"></script>
+<script src="/assets/front/lib/waypoints/waypoints.min.js"></script>
+<script src="/assets/front/lib/counterup/counterup.min.js"></script>
+<script src="/assets/front/lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="/assets/front/lib/isotope/isotope.pkgd.min.js"></script>
+<script src="/assets/front/lib/lightbox/js/lightbox.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="/assets/front/js/main.js"></script>
+
+<app-header-front></app-header-front>
+    <div class=" about px-lg-0">
+        <div class=" g-0 mx-lg-0 ">
+            <div class="col-lg-12 ps-lg-0">
+                <div class="position-relative h-100">
+                    <img class="img-fluid full-page-image" src="/assets/front/img/www.png" alt="Full Page Image">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="my">
+
+
+  <div class="col-md-6">
+    <div class="con_img">
+      <img class="img_responsive" src="../assets/front/img/zz.png" alt="#" />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="bluid">
+      <h1>Faites votre demande de crédit en quelques clics</h1>
+      <p>Quelque soit votre besoin, rachat ou nouveau crédit bancaire à la consommation, faites votre simulation et passez votre demande 100% en ligne en quelques minutes.
+      </p>
+      <a routerLink="/login" class="btn btn-primary">Demander Credit</a>
+    </div>
+  </div>
+
+
+
+</div>
+<!-- About End -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+            <i class="fa fa-user-check fa-2x text-primary"></i>
+          </div>
+          <h1 class="display-1 text-light mb-0">01</h1>
+        </div>
+        <h5>Simuler votre crédit</h5>
+      </div>
+      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.3s">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+            <i class="fa fa-check fa-2x text-primary"></i>
+          </div>
+          <h1 class="display-1 text-light mb-0">02</h1>
+        </div>
+        <h5>Informations personnelles</h5>
+      </div>
+      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.5s">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+            <i class="fa fa-drafting-compass fa-2x text-primary"></i>
+          </div>
+          <h1 class="display-1 text-light mb-0">03</h1>
+        </div>
+        <h5>Télécharger pièces jointes</h5>
+      </div>
+      <div class="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.7s">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <div class="d-flex align-items-center justify-content-center bg-light" style="width: 60px; height: 60px;">
+            <i class="fa fa-headphones fa-2x text-primary"></i>
+          </div>
+          <h1 class="display-1 text-light mb-0">04</h1>
+        </div>
+        <h5>Affecter la demande</h5>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container">
+    <div class="con_img">
+        <img class="img_responsive" src="../assets/front/img/zz.png" alt="iphone" />
+    </div>
+    <div id="simulateur" class="simulator-container">
+        <h2>Simulateur Credit</h2>
+        <div class="credit-type">
+            <button [class.active]="selectedCreditType === 'Crédit personnel'" (click)="selectCreditType('Crédit personnel')">Crédit personnel</button>
+            <button [class.active]="selectedCreditType === 'Crédit Aménagement'" (click)="selectCreditType('Crédit Aménagement')">Crédit Aménagement</button>
+            <button [class.active]="selectedCreditType === 'Crédit Auto Neuve'" (click)="selectCreditType('Crédit Auto Neuve')">Crédit Auto Neuve</button>
+            <button [class.active]="selectedCreditType === 'Crédit Auto Occasion'" (click)="selectCreditType('Crédit Auto Occasion')">Crédit Auto Occasion</button>
+        </div>
+        <div class="form-group">
+            <label for="loan-amount">Montant du crédit</label>
+            <input type="number" id="loan-amount" [(ngModel)]="loanAmount" (input)="calculatePayment()">
+            <input type="range" id="loan-amount-range" min="1000" max="50000" [(ngModel)]="loanAmount" (input)="calculatePayment()">
+        </div>
+        <div class="form-group">
+            <label for="loan-term">Période de remboursement (mois)</label>
+            <input type="number" id="loan-term" [(ngModel)]="loanTerm" (input)="calculatePayment()">
+            <input type="range" id="loan-term-range" min="6" max="120" [(ngModel)]="loanTerm" (input)="calculatePayment()" class="slider">
+        </div>
+        <div class="form-group">
+            <label for="credit-unit">Unité de crédit</label>
+            <select  id="credit-unit"  [(ngModel)]="creditUnit" (change)="calculatePayment()">
+                <option *ngFor="let typeU of typeUniteOptions" [value]="typeU">{{ typeU }}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="payment">Mensualité (DT)</label>
+            <input type="number" id="payment" [value]="Payment" readonly>
+        </div>
+        <button onclick="calculatePayment()">Obtenir un crédit</button>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="/assets/front/img/logo.png" alt="BFI Logo" class="footer-logo-img">
+      <p class="footer-copyright">Copyright © 2024 | All rights reserved by BFI</p>
+    </div>
+    <div class="footer-links">
+      <ul>
+        <li>Expertise</li>
+        <li>Nos Clients</li>
+        <li>News & Insights</li>
+        <li>A propos</li>
+        <li>Carrière</li>
+      </ul>
+      <ul>
+        <li>Arena Portail</li>
+        <li>Punic Trade</li>
+        <li>Agora Bourse</li>
+        <li>Tanit Suite</li>
+        <li>Contact</li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <p>Contact</p>
+      <p>(+216) 71 951 703</p>
+      <p>bfi.contact@gamil.com.tn</p>
+      <div class="footer-social">
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+

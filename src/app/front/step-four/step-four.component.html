@@ -1,0 +1,21 @@
+<div class="upload-container">
+  <div class="upload-box">
+    <h3>Entrez vos Documents Necessaires</h3>
+    <div class="upload-area">
+      <input type="file" id="fileInput" (change)="onFileChange($event)" accept="application/pdf" class="upload-input" multiple>
+      <label for="fileInput" class="upload-label">
+        <i class="fa fa-cloud-upload"></i>
+        <p>Drag & drop your PDF files here or click to select</p>
+      </label>
+    </div>
+    <div *ngIf="selectedFiles.length > 0" class="file-list">
+      <ul>
+        <li *ngFor="let file of selectedFiles">
+          <p><strong>File Name:</strong> {{ file.nomFichier }}</p>
+          <button (click)="removeFile(file)" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+        </li>
+      </ul>
+    </div>
+    <button class="btn btn-primary" [disabled]="!selectedFiles.length">Upload</button>
+  </div>
+</div>

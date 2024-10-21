@@ -1,0 +1,119 @@
+/* src/app/components/demande-credit/credit.component.css */
+.container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgb(228, 186, 118), 0 0 30px rgb(228, 186, 118);
+    max-width: 1000px;
+    max-height: 100000px;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 170vh;
+    padding: 20px;
+
+
+
+}
+
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container input {
+    padding: 5px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.search-container .fas {
+    margin-left: 10px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.table-container {
+    overflow-x: auto;
+    overflow-y: scroll;
+
+
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+
+
+}
+
+
+
+table th, table td {
+    text-align: center; /* Centrer horizontalement */
+    vertical-align: middle; /* Centrer verticalement */
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f2f2f2;
+
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.action-btn {
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.action-btn.view {
+    background-color: #0275d8;
+}
+
+.action-btn.print {
+    background-color: #d9534f;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination span, .pagination button {
+    margin: 0 5px;
+}
+
+.pagination-btn {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.pagination-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

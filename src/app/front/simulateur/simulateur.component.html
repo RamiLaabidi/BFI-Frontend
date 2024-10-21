@@ -1,0 +1,32 @@
+<div class="container">
+<div class="simulator-container">
+    <h2>Simulateur Credit</h2>
+    <div class="credit-type">
+      <button [class.active]="selectedCreditType === 'Crédit personnel'" (click)="selectCreditType('Crédit personnel')">Crédit personnel</button>
+      <button [class.active]="selectedCreditType === 'Crédit Aménagement'" (click)="selectCreditType('Crédit Aménagement')">Crédit Aménagement</button>
+      <button [class.active]="selectedCreditType === 'Crédit Auto Neuve'" (click)="selectCreditType('Crédit Auto Neuve')">Crédit Auto Neuve</button>
+      <button [class.active]="selectedCreditType === 'Crédit Auto Occasion'" (click)="selectCreditType('Crédit Auto Occasion')">Crédit Auto Occasion</button>
+    </div>
+    <div class="form-group">
+      <label for="loan-amount">Montant du crédit</label>
+      <input type="number" id="loan-amount" [(ngModel)]="loanAmount" (input)="calculatePayment()">
+      <input type="range" id="loan-amount-range" min="1000" max="50000" [(ngModel)]="loanAmount" (input)="calculatePayment()">
+    </div>
+    <div class="form-group">
+      <label for="loan-term">Période de remboursement (mois)</label>
+      <input type="number" id="loan-term" [(ngModel)]="loanTerm" (input)="calculatePayment()">
+      <input type="range" id="loan-term-range" min="6" max="120" [(ngModel)]="loanTerm" (input)="calculatePayment()" class="slider">
+    </div>
+    <div class="form-group">
+      <label for="credit-unit">Unité de crédit</label>
+      <select  id="credit-unit"  [(ngModel)]="creditUnit" (change)="calculatePayment()">
+        <option *ngFor="let typeU of typeUniteOptions" [value]="typeU">{{ typeU }}</option>
+       </select>
+  </div>
+    <div class="form-group">
+      <label for="payment">Mensualité (DT)</label>
+      <input type="number" id="payment" [value]="Payment" readonly>
+    </div>
+    <button onclick="calculatePayment()">Obtenir un crédit</button>
+  </div>
+</div>

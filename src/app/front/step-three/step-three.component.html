@@ -1,0 +1,32 @@
+<div class="form h-100">
+  <h3>Garanties Proposées</h3>
+  <div class="garanties-container">
+    <table class="garanties-table">
+      <thead>
+        <tr>
+          <th>Nature</th>
+          <th>Type</th>
+          <th>Valeur</th>
+          <th>Devise</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let garantie of garanties; let i = index">
+          <td><input type="text" [(ngModel)]="garantie.nature" (ngModelChange)="onGarantieChange()" placeholder="Nature"></td>
+
+          <td><input type="number" [(ngModel)]="garantie.valeur" (ngModelChange)="onGarantieChange()" placeholder="Valeur"></td>
+          <td>
+            <select id="Devise" name="Devise" [(ngModel)]="garantie.devise" (ngModelChange)="onGarantieChange()">
+              <option *ngFor="let d of deviseOptions" [value]="d">{{ d }}</option>
+            </select>
+          </td>
+          <td>
+            <button (click)="deleteGarantie(i)">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="add-garantie-btn" (click)="addGarantie()">➕ Ajouter une garantie</button>
+  </div>
+</div>

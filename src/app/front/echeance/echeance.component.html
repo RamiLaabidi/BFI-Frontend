@@ -1,0 +1,42 @@
+<div class="echeance-container">
+  <h1 class="text-center">Échéancier</h1>
+
+  <div *ngIf="echeances.length === 0" class="text-center">
+    <p>Aucun échéancier n'a été généré.</p>
+  </div>
+
+  <div *ngIf="echeances.length > 0" class="echeance-list">
+    <div class="echeance-header">
+      <h2>Montant: {{ this.credit.montant | currency }}</h2>
+      <h2>Durée: {{ dureeCredit }} mois</h2>
+      <h2>Type de Crédit: {{ typeCredit }}</h2>
+    </div>
+
+    <table class="table table-bordered mt-4">
+      <thead class="thead-light">
+      <tr>
+        <th>Numéro d'échéance</th>
+        <th>Date</th>
+        <th>Montant de l'échéance</th>
+        <th>Intérêt</th>
+        <th>Principal</th>
+        <th>Solde restant</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let echeance of echeances; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ echeance.datePaiement | date }}</td>
+        <td>{{ echeance.montantEcheance | currency }}</td>
+        <td>{{ echeance.interetsPayes | currency }}</td>
+        <td>{{ echeance.capitalRembourse | currency }}</td>
+        <td>{{ echeance.capitalRestantDu | currency }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-center mt-4">
+    <button class="btn btn-primary" (click)="generateEcheances()">Regénérer l'échéancier</button>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<div class="dialog-backdrop" (click)="closeDialog()"></div>
+<div class="dialog-content">
+  <h2>Échéancier</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Date Paiement</th>
+        <th>Mensualité (DT)</th>
+        <th>Intérêts Payés (DT)</th>
+        <th>Capital Remboursé (DT)</th>
+        <th>Capital Restant Due (DT)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let echeance of echeances">
+        <td>{{ echeance.datePaiement | date }}</td>
+        <td>{{ echeance.mensualite }}</td>
+        <td>{{ echeance.interetsPayes }}</td>
+        <td>{{ echeance.capitalRembourse }}</td>
+        <td>{{ echeance.capitalRestantDu }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="close-button" (click)="closeDialog()">
+    <i class="fas fa-times"></i> Fermer
+  </button>
+</div>

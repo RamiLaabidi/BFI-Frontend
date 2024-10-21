@@ -1,0 +1,43 @@
+<div class="main">
+  <div class="container">
+    <h1>Crédits Acceptés</h1><br>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Numéro Demande</th>
+            <th>Type Demande</th>
+            <th>Montant</th>
+            <th>Date</th>
+            <th>Statut</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let demande of acceptedCredits">
+            <td>{{ demande.numD }}</td>
+            <td>{{ demande.typeCredit }}</td>
+            <td>{{ demande.montant }} DT</td>
+            <td>{{ demande.dateDemande | date }}</td>
+            <td>
+              <span class="status accepte">{{ demande.statutCredit }}</span>
+            </td>
+            <td>
+              <button class="action-btn print" (click)="generatePDF(demande.idCredit)">
+                <i class="fas fa-file-pdf"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+
+    <div class="signature-container">
+      <h4>Ajoutez votre signature</h4>
+      <app-signature-input (signatureCaptured)="captureSignature($event)"></app-signature-input>
+    </div>
+  </div>
+</div>

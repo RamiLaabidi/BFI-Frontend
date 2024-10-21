@@ -1,0 +1,123 @@
+<div class="all">
+<app-admin-sidebar></app-admin-sidebar>
+    <app-admin-navbar></app-admin-navbar>
+    <!-- Main Content -->
+    <div class="main-content">
+      <section class="content">
+        <div class="card-overview">
+          <div class="card visitors">
+            <div class="icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="details">
+              <p>Clients</p>
+              <h3>{{nbreClients}}</h3>
+            </div>
+          </div>
+          <div class="card subscribers">
+            <div class="icon">
+              <i class="fas fa-user-check"></i>
+            </div>
+            <div class="details">
+              <p>Demandes Crédit</p>
+              <h3>{{nbreDemandes}}</h3>
+            </div>
+          </div>
+          <div class="card sales">
+            <div class="icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="details">
+              <p>Demandes Crédit Acceptées</p>
+              <h3>{{nbreDemandesAcc}}</h3>
+            </div>
+          </div>
+          <div class="card orders">
+            <div class="icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="details">
+              <p>Demandes Crédit Refusées</p>
+              <h3>{{nbreDemandesRej}}</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- table demandes en cours -->
+        <div class="container">
+            <h2 class="custom-title">Les Demandes Crédit En Cours</h2>
+          <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Customer</th>
+                        <th>Type</th>
+                        <th>Unite</th>
+                        <th>Montant</th>
+                        <th>Duree</th>
+                        <th>Details</th>
+                        <th class="action">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let demande of demandesEnCours" >
+                    <td>{{ demande.numD }}</td>
+                    <td>
+                      <img [src]="demande.customerImage ? 'http://localhost:8222/user/profile-picture/' + demande.customerImage : '../../assets/images/fcbk.png'" alt="{{ demande.customerName }}">
+                      {{ demande.customerName }}
+                    </td>
+                    <td>{{ demande.typeCredit }}</td>
+                    <td>{{ demande.typeUnite }}</td>
+                    <td>{{ demande.montant }}</td>
+                    <td>{{ demande.dureeCredit }}</td>
+                    <td><button class="details-btn" (click)="openDialog(demande)"><i class="fa-solid fa-eye"></i></button></td>
+                    <td class="action">
+                      <a (click)="accepterD(demande)"><i class="fa-solid fa-check"></i></a>
+                      <a (click)="refuserD(demande)"><i class="fa-solid fa-xmark"></i></a>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Charts Section -->
+
+          <div class="chart">
+            <h2 class="custom-title">Demandes Crédit Récentes</h2>
+            <div class="table-container haha">
+              <table>
+                  <thead>
+                      <tr>
+                          <th>numero</th>
+                          <th>Customer</th>
+                          <th>Type</th>
+                          <th>Unite</th>
+                          <th>Montant</th>
+                          <th>Duree</th>
+                          <th class="action">Status</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngFor="let demande of demandesAccRej">
+                          <td>{{ demande.numD }}</td>
+                          <td class="user">
+                            <img [src]="demande.customerImage ? 'http://localhost:8222/user/profile-picture/' + demande.customerImage : '../../assets/images/fcbk.png'" alt="{{ demande.customerName }}">
+                            {{ demande.customerName }}
+                          </td>
+                          <td>{{ demande.typeCredit }}</td>
+                          <td>{{ demande.typeUnite }}</td>
+                          <td>{{ demande.montant }}</td>
+                          <td>{{ demande.dureeCredit }}</td>
+                          <td><span class="status" [ngClass]="demande.statutCredit | lowercase">{{ demande.statutCredit }}</span></td>
+
+                      </tr>
+                  </tbody>
+              </table>
+            </div>
+          </div>
+
+      </section>
+    </div>
+  </div>

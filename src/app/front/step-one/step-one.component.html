@@ -1,0 +1,47 @@
+<div class="form h-100">
+    <h3>Informations Client</h3>
+
+      <div class="row" >
+        <div class="col-md-4 form-group mb-5">
+          <label for="nom" class="col-form-label">Nom *</label>
+          <input type="text" class="form-control" name="nom" id="nom" [(ngModel)]="user.nom" readonly>
+        </div>
+        <div class="col-md-4 form-group mb-5">
+          <label for="prenom" class="col-form-label">Prenom *</label>
+          <input type="text" class="form-control" name="prenom" id="prenom"  [(ngModel)]="user.prenom" readonly>
+        </div>
+        <div class="col-md-4 form-group mb-5">
+          <label for="cin" class="col-form-label">Num Cin *</label>
+          <input type="text" class="form-control" name="numCin" id="numCin" [(ngModel)]="user.numCin" readonly >
+        </div>
+      </div>
+
+      <div class="row" >
+        <div class="col-md-4 form-group mb-5">
+            <label for="" class="col-form-label">Date de Naissance</label>
+            <input type="date" class="form-control" name="date de Naissance" id="dateNaissance" [(ngModel)]="user.formattedDateDeNaissance" readonly>
+          </div>
+        <div class="col-md-4 form-group mb-5">
+            <label for="sexe" class="col-form-label">Sexe</label>
+            <select id="sexe" name="sexe" [(ngModel)]="user.sexe">
+                <option *ngFor="let sexe of sexeOptions" [value]="sexe">{{ sexe }}</option>
+            </select>
+        </div>
+        <div class="col-md-4 form-group mb-5">
+            <label for="sf" class="col-form-label">Situation Familiale</label>
+            <select id="situationFamiliale" name="sf" [(ngModel)]="user.situationFamiliale">
+                <option *ngFor="let sf of situationFamilialeOptions" [value]="sf">{{ sf }}</option>
+            </select>
+          </div>
+      </div>
+
+      <div class="row" >
+
+            <div class="col-md-6 form-group mb-5">
+                <label for="" class="col-form-label">Email *</label>
+                <input type="text" class="form-control" name="email" id="email"  [(ngModel)]="user.email">
+              </div>
+
+      </div>
+
+</div>

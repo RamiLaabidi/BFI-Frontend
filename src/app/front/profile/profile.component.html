@@ -1,0 +1,74 @@
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div *ngIf="user">
+    <form (ngSubmit)="onSubmit()">
+      <div class="profile-info">
+        <div class="profile-section">
+          <h2>Informations Personnelles</h2>
+          <div class="info-item">
+            <label for="cin">Numéro CIN :</label>
+            <input type="text" id="cin" [(ngModel)]="user.numCin" name="numCin">
+          </div>
+          <div class="info-item">
+            <label for="email">Email :</label>
+            <input type="email" id="email" [(ngModel)]="user.email" name="email">
+          </div>
+          <div class="info-item">
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" [(ngModel)]="user.prenom" name="prenom">
+          </div>
+          <div class="info-item">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" [(ngModel)]="user.nom" name="nom">
+          </div>
+          <div class="info-item">
+            <label for="dateDeNaissance">Date de Naissance :</label>
+            <input type="date" id="dateDeNaissance" [(ngModel)]="user.dateDeNaissance" name="dateDeNaissance">
+          </div>
+          <div class="info-item">
+            <label for="lieuNaissance">Lieu de Naissance :</label>
+            <select id="lieuNaissance" [(ngModel)]="user.lieuNaiss" name="lieuNaiss">
+              <option *ngFor="let lieu of lieuNaissanceOptions" [value]="lieu">{{ lieu }}</option>
+            </select>
+          </div>
+          <div class="info-item">
+            <label for="sexe">Sexe :</label>
+            <select id="sexe" [(ngModel)]="user.sexe" name="sexe">
+              <option *ngFor="let sexe of sexeOptions" [value]="sexe">{{ sexe }}</option>
+            </select>
+          </div>
+          <div class="info-item">
+            <label for="situationFamiliale">Situation Familiale :</label>
+            <select id="situationFamiliale" [(ngModel)]="user.situationFamiliale" name="situationFamiliale">
+              <option *ngFor="let situationFamiliale of situationFamilialeOptions" [value]="situationFamiliale">{{ situationFamiliale }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="profile-section">
+          <h2>Informations Bancaires</h2>
+          <div class="acc-info" *ngFor="let account of user.compteBancaires; let i =index">
+            <h6>Compte no {{ i + 1 }} :</h6>
+            <div class="info-item">
+              <label for="numCompte">Numéro de Compte:</label>
+              <input type="text" [value]="account.numeroCompte" disabled>
+            </div>
+            <div class="info-item">
+              <label for="devise">Solde :</label>
+              <input type="text" [value]="account.solde" disabled>
+            </div>
+            <div class="info-item">
+              <label for="devise">Type du compte :</label>
+              <input type="text" [value]="account.typeCompte" disabled>
+            </div>
+
+            <!--<div class="info-item">
+              <label for="dateOuverture">Date d'Ouverture :</label>
+              <input type="date" [value]="account.dateOvertureCompte | date:'yyyy-MM-dd'" disabled>
+            </div>-->
+          </div>
+        </div>
+        <button type="submit" class="btn">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

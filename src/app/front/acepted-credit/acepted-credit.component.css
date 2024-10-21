@@ -1,0 +1,134 @@
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 1100px;
+}
+
+  
+  
+  
+  .signature-container {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+
+.main{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container label {
+    margin-right: 10px;
+}
+
+.search-container input {
+    padding: 5px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search-container .fas {
+    margin-left: 10px;
+    color: #aaa;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.non-preselectionne {
+    background-color: #d9534f;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.en-cours {
+    background-color: #aeadac;
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: #fff;
+}
+.accepte {
+    background-color: green;
+}
+
+.action-btn {
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 5px;
+}
+
+.action-btn.view {
+    background-color: #0275d8;
+}
+
+.action-btn.print {
+    background-color: #AB873E;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination span, .pagination button {
+    margin: 0 5px;
+}
+
+.pagination-btn {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
